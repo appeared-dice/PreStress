@@ -4,6 +4,7 @@
 #include <qstringlist.h>
 #include <qstringlistmodel.h>
 #include <qsqltablemodel.h>
+#include <qmessagebox.h>
 
 
 class SteelListDialog :public PropertyOrShapeDialog {
@@ -16,11 +17,11 @@ public:
 	void showPropertyList();
 private slots:
 	void addSteelProperty();
-	void editSteelProperty();
-	void removeSteelProperty();
+	void editSteelProperty(QModelIndex listCurrentIndex);
+	void removeSteelProperty(QModelIndex listCurrentIndex);
+	void updateSteelList();
+	void popWarningDialog(QString dialogTitle, QString warningText);
 private:
 	QSqlDatabase* db;			// 数据库对象
-	QSqlTableModel* tableModel;
-	QStringList nameList;
-	QStringListModel* nameListModel;
+	QStringListModel* nameListModel;		// 数据模型对象
 };

@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include <string>
 #include <vector>
-//#include <utility>
 #include <qstring.h>
 
 namespace Data {

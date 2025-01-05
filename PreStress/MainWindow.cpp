@@ -7,7 +7,7 @@
 
 
 MainWindow::MainWindow(QWidget* parent)
-	: QMainWindow(parent)
+	: QMainWindow(parent), db(new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE")))
 {
 	qDebug() << "设置ui";
 	try {
@@ -30,8 +30,7 @@ void MainWindow::initUI() {
 }
 
 void MainWindow::initDB() {
-	db = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));			// 连接数据库
-	db->setDatabaseName("steel_pp.db");					// 创建数据库名称
+	db->setDatabaseName("steel_data.db");					// 创建数据库名称
 	if (!db->open()) {
 		qDebug() << "数据库打开失败！";
 		return;
@@ -63,24 +62,25 @@ void MainWindow::initDB() {
 																	); ";				// 创建钢束形状表
 	query.exec(queryPropertyTable);		// 执行SQL语句
 	query.exec(queryShapeTable);
-	//db->close();		// 关闭数据库连接
+	db->close();		// 关闭数据库连接
 	qDebug() << "关闭数据库连接";
 }
 
 void MainWindow::steelStrandppDialog() {
-	PropertyOrShapeDialog* propertyListDialog = new SteelListDialog(this, db);
+	PropertyOrShapeDialog* propertyListDialog = new SteelListDialog(this, db);		// 钢束特性列表窗口对象
 	propertyListDialog->setAttribute(Qt::WA_DeleteOnClose);		// 确保窗口关闭时自动销毁资源
 	propertyListDialog->show();
 }
 
 void MainWindow::steelShapeDialog() {
-	PropertyOrShapeDialog* shapeListDialog = new ShapeListDialog(this);
+	PropertyOrShapeDialog* shapeListDialog = new ShapeListDialog(this, db);		// 钢束形状列表窗口对象
 	shapeListDialog->setAttribute(Qt::WA_DeleteOnClose);
 	shapeListDialog->show();
 }
 
 MainWindow::~MainWindow()
 {
+	delete db;
 	//QSqlDatabase::removeDatabase("qt_sql_default_connection");		// 移除数据库连接
 	qDebug() << "数据库移除！";
 }

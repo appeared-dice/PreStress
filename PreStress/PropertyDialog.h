@@ -7,16 +7,18 @@
 #include <qsqltablemodel.h>
 #include <qsqlrecord.h>
 #include <qsqlquery.h>
+#include "SteelListDialog.h"
 
 class PropertyDialog : public QDialog
 {
+	friend class SteelListDialog;
 	Q_OBJECT
 
 public:
-	PropertyDialog(QWidget* parent, QSqlDatabase* db, QSqlTableModel* tableModel);
+	PropertyDialog(QWidget* parent = nullptr, QSqlDatabase* d = nullptr, QString steelIndexName = NULL);
 	~PropertyDialog();
 	void initUI();
-	static void setValidator(QLineEdit* lineEdit, double bottom, double top, unsigned decimal);		// 设置输入框验证器
+	void setValidator(QLineEdit* lineEdit, double bottom, double top, unsigned decimal);		// 设置输入框验证器
 	void popWarningDialog(QString dialogTitle, QString warningText);
 
 private slots:
@@ -28,8 +30,8 @@ private slots:
 private:
 	Ui::PropertyDialogClass ui;
 	QSqlDatabase* db;
-	QSqlTableModel* tableModel;
+	QString steelIndexName;			// 钢束列表索引名称
 
 signals:
-
+	void steelListChanged();
 };

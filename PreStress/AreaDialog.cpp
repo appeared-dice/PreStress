@@ -38,7 +38,7 @@ void AreaDialog::emitData() {
 	steelArea = (*steelAreaPairIter).second;
 	data = QString::number(steelNumber * steelArea, 'f', 2);
 
-	emit areaChanged(data);
+	emit areaChanged(data);			// 将选择的钢束的对应的面积数据信号发送出去
 	qDebug() << "发送了数据";
 	close();
 }

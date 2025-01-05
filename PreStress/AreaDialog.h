@@ -15,10 +15,10 @@ public:
 
 private slots:
 	void emitData();
-	
 
 private:
 	Ui::AreaDialogClass ui;
+
 signals:
 	void areaChanged(QString data);
 };

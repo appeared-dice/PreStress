@@ -112,9 +112,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AreaDialog.cpp" />
+    <ClCompile Include="CustomGraphicsView.cpp" />
     <ClCompile Include="InteralData.cpp" />
     <ClCompile Include="PropertyDialog.cpp" />
     <ClCompile Include="PropertyOrShapeDialog.cpp" />
+    <ClCompile Include="ShapeDialog.cpp" />
     <ClCompile Include="ShapeListDialog.cpp" />
     <ClCompile Include="SteelListDialog.cpp" />
     <QtRcc Include="MainWindow.qrc" />
@@ -127,6 +129,7 @@
     <ClCompile Include="main.cpp" />
     <QtUic Include="PropertyDialog.ui" />
     <QtUic Include="PropertyOrShapeDialog.ui" />
+    <QtUic Include="ShapeDialog.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PropertyOrShapeDialog.h" />
@@ -139,7 +142,9 @@
     <QtMoc Include="PropertyDialog.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ShapeDialog.h" />
     <QtMoc Include="AreaDialog.h" />
+    <QtMoc Include="CustomGraphicsView.h" />
     <ClInclude Include="InternalData.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

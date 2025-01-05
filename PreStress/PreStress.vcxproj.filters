@@ -58,6 +58,12 @@
     <ClCompile Include="AreaDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ShapeDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomGraphicsView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="PropertyOrShapeDialog.ui">
@@ -67,6 +73,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="AreaDialog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ShapeDialog.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -84,6 +93,12 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="AreaDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ShapeDialog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomGraphicsView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
